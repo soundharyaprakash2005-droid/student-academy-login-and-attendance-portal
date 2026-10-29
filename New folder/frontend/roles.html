@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles — Internship Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="roles">
+
+  <div class="sky-decor"><div class="dots"></div></div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="content">
+      <header id="topbar"></header>
+
+      <div class="card rise" style="--d:1">
+        <div class="card-body">
+          <div class="toolbar">
+            <div class="search-wrap" id="search-slot">
+              <input class="input" type="text" id="role-search" placeholder="Search roles...">
+            </div>
+            <div class="spacer"></div>
+            <button class="btn btn-primary" id="add-role-btn">Add Role</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="role-grid" id="role-grid"></section>
+    </div>
+  </div>
+
+  <!-- Add / Edit role modal -->
+  <div class="modal-backdrop" id="role-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="role-modal-title">Add Role</h3>
+        <button class="modal-close" data-close="role-modal">✕</button>
+      </div>
+      <form id="role-form">
+        <div class="modal-body">
+          <div class="field">
+            <label for="r-name">Role name</label>
+            <input class="input" id="r-name" required minlength="2" placeholder="e.g. Mentor">
+          </div>
+          <div class="field">
+            <label for="r-desc">Description</label>
+            <input class="input" id="r-desc" required minlength="3" placeholder="What can this role do?">
+          </div>
+          <div class="field">
+            <label>Permissions</label>
+            <div class="perm-checks" id="perm-checks"></div>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" data-close="role-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="role-save-btn">Save Role</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirm modal -->
+  <div class="modal-backdrop" id="delete-modal">
+    <div class="modal" style="max-width:400px">
+      <div class="modal-head">
+        <h3>Delete role?</h3>
+        <button class="modal-close" data-close="delete-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.6">
+          This will permanently remove the <b id="delete-name"></b> role. Users assigned to it will keep the role name but it will no longer be managed.
+        </p>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close="delete-modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/roles.js"></script>
+</body>
+</html>

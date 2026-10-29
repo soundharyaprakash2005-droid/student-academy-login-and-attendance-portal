@@ -1,0 +1,74 @@
+/* ============================================================
+   Responsive rules — Clear Sky admin
+   ============================================================ */
+
+@media (max-width: 1180px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .role-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-grid { grid-template-columns: 1fr; }
+  .settings-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 14px 16px;
+  }
+
+  .sidebar::after { display: none; }
+
+  .brand { padding: 0 8px 0 0; }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+    gap: 4px;
+  }
+
+  .nav-label, .sidebar-foot { display: none; }
+
+  .nav a { padding: 9px 13px; font-size: 13.5px; }
+
+  .nav a:hover { transform: none; }
+
+  .content { padding: 18px 16px 40px; }
+
+  .topbar { flex-wrap: wrap; }
+
+  .search-wrap .input { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .role-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .perm-checks { grid-template-columns: 1fr; }
+
+  .topbar-actions .profile-chip b,
+  .topbar-actions .profile-chip small { display: none; }
+
+  .profile-chip { padding: 6px; }
+
+  .toolbar { align-items: stretch; flex-direction: column; }
+
+  .toolbar .search-wrap, .toolbar .input { width: 100%; }
+
+  .toolbar .btn { justify-content: center; }
+
+  .modal-foot { flex-direction: column-reverse; }
+
+  .modal-foot .btn { width: 100%; }
+
+  .toast-zone { left: 16px; right: 16px; }
+
+  .toast { min-width: 0; width: 100%; }
+}

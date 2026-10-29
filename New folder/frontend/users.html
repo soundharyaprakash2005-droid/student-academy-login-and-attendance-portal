@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users — Internship Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="users">
+
+  <div class="sky-decor"><div class="dots"></div></div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="content">
+      <header id="topbar"></header>
+
+      <div class="card rise" style="--d:1">
+        <div class="card-body">
+          <div class="toolbar">
+            <div class="search-wrap" id="search-slot">
+              <input class="input" type="text" id="user-search" placeholder="Search by name, email or role...">
+            </div>
+            <select class="input" id="status-filter" style="width:150px">
+              <option value="">All statuses</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+            <div class="spacer"></div>
+            <button class="btn btn-primary" id="add-user-btn">Add User</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rise" style="--d:2">
+        <div class="card-body table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th><th>Phone</th><th>Role</th><th>Department</th><th>Status</th><th>Joined</th><th style="width:100px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit modal -->
+  <div class="modal-backdrop" id="user-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="user-modal-title">Add User</h3>
+        <button class="modal-close" data-close="user-modal">✕</button>
+      </div>
+      <form id="user-form">
+        <div class="modal-body">
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input class="input" id="f-name" required minlength="3" placeholder="e.g. Arun Kumar">
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input class="input" id="f-email" type="email" required placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input class="input" id="f-phone" required minlength="7" placeholder="9876543210">
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-role">Role</label>
+              <select class="input" id="f-role"></select>
+            </div>
+            <div class="field">
+              <label for="f-dept">Department</label>
+              <input class="input" id="f-dept" required placeholder="e.g. Web Development">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-status">Status</label>
+            <select class="input" id="f-status">
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" data-close="user-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="user-save-btn">Save User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirm modal -->
+  <div class="modal-backdrop" id="delete-modal">
+    <div class="modal" style="max-width:400px">
+      <div class="modal-head">
+        <h3>Delete user?</h3>
+        <button class="modal-close" data-close="delete-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:14px;color:var(--ink-soft);line-height:1.6">
+          This will permanently remove <b id="delete-name"></b> from the academy. This action cannot be undone.
+        </p>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close="delete-modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/users.js"></script>
+</body>
+</html>

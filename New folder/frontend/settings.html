@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Internship Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="settings">
+
+  <div class="sky-decor"><div class="dots"></div></div>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <div class="content">
+      <header id="topbar"></header>
+
+      <form id="settings-form">
+        <div class="settings-grid">
+
+          <div class="card rise" style="--d:1">
+            <div class="card-head">
+              <div>
+                <h2>General</h2>
+                <p>Identity and locale of your platform</p>
+              </div>
+            </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:16px">
+              <div class="field">
+                <label for="s-name">Application name</label>
+                <input class="input" id="s-name" required minlength="2">
+              </div>
+              <div class="field">
+                <label for="s-email">Admin email</label>
+                <input class="input" id="s-email" type="email" required>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="s-lang">Language</label>
+                  <select class="input" id="s-lang">
+                    <option>English</option>
+                    <option>Tamil</option>
+                    <option>Hindi</option>
+                    <option>Telugu</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="s-tz">Timezone</label>
+                  <select class="input" id="s-tz">
+                    <option>Asia/Kolkata</option>
+                    <option>UTC</option>
+                    <option>America/New_York</option>
+                    <option>Europe/London</option>
+                    <option>Asia/Singapore</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card rise" style="--d:2">
+            <div class="card-head">
+              <div>
+                <h2>Preferences</h2>
+                <p>Security and notifications</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="setting-row">
+                <div>
+                  <h4>Email Notifications</h4>
+                  <p>Receive system alerts through email</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="s-notify">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-row">
+                <div>
+                  <h4>Two-Factor Authentication</h4>
+                  <p>Extra security layer for admin logins</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="s-2fa">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-row">
+                <div>
+                  <h4>Maintenance Mode</h4>
+                  <p>Temporarily take the platform offline</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="s-maintenance">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="toolbar rise" style="--d:3;margin-top:18px">
+          <small id="settings-updated" style="color:var(--ink-faint)"></small>
+          <div class="spacer"></div>
+          <button type="submit" class="btn btn-primary" id="settings-save-btn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>
